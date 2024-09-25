@@ -1,1 +1,42 @@
 # MemoryHandling
+## Minneshantering
+1. Stacken innehåller till exempel Value Types och fungerar som en kö där senaste tillägget måste exekveras innan tidigare anrop och metoder kan köras.
+- Medans Heapen fungerar som en låda där till exempel Reference Types finns tillgängliga och dessa finns alltid tillgängliga att användas hela tiden tills Garbage collection tar bort dessa ur lådan.
+2. Value Types är variabler och Reference types är typer som ärver av System.Object
+3. Den första metoden tilldelar variabeln y värdet av x, då dessa är båda av typen int. Medans den andra metoden tilldelar variabeln y objektet x, när man sedan ändrar värde på y.MyValue så ändras även x.MyValue för dessa är samma objekt.
+
+## Datastrukturer
+### Övning 1: ExamineList()
+1. Funktionen fungerar.
+2. Listans kapacitet ökar när den behöver mer kapacitet.
+3. Kapaciteten dubblar varje gång listan ökar kapaciteten.
+4. Det är kostar prestanda att öka kapaciteten på listan.
+5. Nej, listan behåller sin högsta kapacitet. Det går att minska kapaciteten med TrimExcess().
+6. Om man vet hur många element man vill lagra kan man definiera kapacitet i listans construktor för att slippa prestandakostnaden för att öka senare. En array är fördelaktig om elementen är konstanta eller om man vill ha en multi-dimensionell array.
+
+### Övning 2: ExamineQueue()
+1. 	a. " ".
+	b. "Kalle".
+	c. "Kalle, Greta".
+	d. "Greta".
+	e. "Greta, Stina".
+	f. "Stina".
+	g. "Stina, Olle".
+	h. ...
+2. Utfört i koden.
+
+### Övning 3: ExamineStack()
+1. 	a. " ".
+	b. "Kalle".
+	c. "Kalle, Greta".
+	d. "Kalle".
+	e. "Kalle, Stina".
+	f. "Kalle".
+	g. "Kalle, Olle".
+	h. ...
+	Det är inte smart att använda en stack för ICA:s kösystem för Kalle blir trött i benen och kommer använda online handling nästa gång.
+2. Utfört i koden.
+
+### Övning 4: CheckParenthesis()
+1.	Vi kan loopa varje bokstav i input strängen och hittar vi en typ av parentese så lägger vi den i en stack, sen matchar vi stängnings parenteser i strängen mot stacken för att se att det är korrekt mängd och ordning.
+2. Utförd i koden.
