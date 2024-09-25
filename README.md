@@ -15,26 +15,28 @@
 6. Om man vet hur många element man vill lagra kan man definiera kapacitet i listans construktor för att slippa prestandakostnaden för att öka senare. En array är fördelaktig om elementen är konstanta eller om man vill ha en multi-dimensionell array.
 
 ### Övning 2: ExamineQueue()
-1. 	a. " ".
-	b. "Kalle".
-	c. "Kalle, Greta".
-	d. "Greta".
-	e. "Greta, Stina".
-	f. "Stina".
-	g. "Stina, Olle".
-	h. ...
+1. ICA kön om man använder Queue.
+- " ".
+- "Kalle".
+- "Kalle, Greta".
+- "Greta".
+- "Greta, Stina".
+- "Stina".
+- "Stina, Olle".
+- ...
 2. Utfört i koden.
 
 ### Övning 3: ExamineStack()
-1. 	a. " ".
-	b. "Kalle".
-	c. "Kalle, Greta".
-	d. "Kalle".
-	e. "Kalle, Stina".
-	f. "Kalle".
-	g. "Kalle, Olle".
-	h. ...
-	Det är inte smart att använda en stack för ICA:s kösystem för Kalle blir trött i benen och kommer använda online handling nästa gång.
+1. ICA kön om man använder Stack
+- " ".
+- "Kalle".
+- "Kalle, Greta".
+- "Kalle".
+- "Kalle, Stina".
+- "Kalle".
+- "Kalle, Olle".
+- ...
+Det är inte smart att använda en stack till ICA:s kösystem för Kalle blir trött i benen och kommer använda online handling nästa gång.
 2. Utfört i koden.
 
 ### Övning 4: CheckParenthesis()
