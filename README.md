@@ -42,3 +42,38 @@ Det är inte smart att använda en stack till ICA:s kösystem för Kalle blir tr
 ### Övning 4: CheckParenthesis()
 1.	Vi kan loopa varje bokstav i input strängen och hittar vi en typ av parentese så lägger vi den i en stack, sen matchar vi stängnings parenteser i strängen mot stacken för att se att det är korrekt mängd och ordning.
 2. Utförd i koden.
+
+### Övning 5: Rekursion
+1. illustrera flödet för RecursiveOdd()
+- Anropa RecursiveOdd(1)
+- Return 1
+
+- Anropa RecursiveOdd(3)
+- Anropa RecursiveOdd(3-1)
+- Anropa RecursiveOdd(2-1)
+- Return 1+2+2 (5)
+
+- Anropa RecursiveOdd(5)
+- Anropa RecursiveOdd(5-1)
+- Anropa RecursiveOdd(4-1)
+- Anropa RecursiveOdd(3-1)
+- Anropa RecursiveOdd(2-1)
+- Return 1+2+2+2+2 (9)
+2. Utförd i koden.
+3. Utförd i koden.
+
+### Övning 6: Iteration
+1. illustrera flödet för IterativeOdd()
+- Anropa IterativeOdd(1) -> 0 varv i loopen
+- Return 1
+
+- Anropa IterativeOdd(3) -> 2 varv i loopen
+- Return 5
+
+- Anropa IterativeOdd(5) -> 4 varv i loopen
+- Return 9
+2. Utförd i koden.
+3. Utförd i koden.
+
+### Fråga
+Iteration ser ut att vara mindre krävande och snabbare att utföra.

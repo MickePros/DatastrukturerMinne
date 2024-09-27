@@ -18,6 +18,8 @@ namespace SkalProj_Datastrukturer_Minne
                     + "\n2. Examine a Queue"
                     + "\n3. Examine a Stack"
                     + "\n4. CheckParenthesis"
+                    + "\n5. RecursiveEven"
+                    + "\n6. IterativeEven"
                     + "\n0. Exit the application");
                 char input = ' '; //Creates the character input to be used with the switch-case below.
                 try
@@ -43,10 +45,14 @@ namespace SkalProj_Datastrukturer_Minne
                     case '4':
                         CheckParanthesis();
                         break;
-                    /*
-                     * Extend the menu to include the recursive 
-                     * and iterative exercises.
-                     */
+                    case '5':
+                        int resultRecursive = RecursiveEven(4);
+                        Console.WriteLine($"returned result {resultRecursive}");
+                        break;
+                    case '6':
+                        int resultIterative = IterativeEven(4);
+                        Console.WriteLine($"returned result {resultIterative}");
+                        break;
                     case '0':
                         Environment.Exit(0);
                         break;
@@ -213,35 +219,108 @@ namespace SkalProj_Datastrukturer_Minne
              * Example of correct: (()), {}, [({})],  List<int> list = new List<int>() { 1, 2, 3, 4 };
              * Example of incorrect: (()]), [), {[()}],  List<int> list = new List<int>() { 1, 2, 3, 4 );
              */
-            Console.WriteLine("Give me a string and I will tell you if it contains valid paranthesis structure.");
-            char[] checkSymbols = ['(', '[', '{', ')', ']', '}'];
-
-            string input = Console.ReadLine();
-            Stack<char> checkStack = new Stack<char>();
-            foreach (var letter in input.ToCharArray())
+            bool keepAlive = false;
+            do
             {
-                if (!checkSymbols.Contains(letter))
+                Console.WriteLine("Give me a string and I will tell you if it contains valid paranthesis structure.");
+                char[] checkSymbols = ['(', '[', '{', ')', ']', '}'];
+                keepAlive = false;
+                string input = Console.ReadLine();
+                Stack<char> checkStack = new Stack<char>();
+                foreach (var letter in input.ToCharArray())
                 {
-                    continue;   //Check if letter is unimportant and if so continue.
+                    if (!checkSymbols.Contains(letter))
+                    {
+                        continue;   //Check if letter is unimportant and if so continue.
+                    }
+                    else if (letter == '(')
+                    {
+                        checkStack.Push(')');   //Look for opening paranthesis and add closing pair to stack.
+                    }
+                    else if (letter == '[')
+                    {
+                        checkStack.Push(']');
+                    }
+                    else if (letter == '{')
+                    {
+                        checkStack.Push('}');
+                    }
+                    else if (checkStack.Count == 0 || checkStack.Pop() != letter)
+                    {
+                        Console.WriteLine("Input contains invalid parathesis structure.");  //If letter is a paranthesis but not an opening one, we assume it is a closing paranthesis, so we check if it pairs with our latest stack element.
+                        keepAlive = true;
+                        break;
+                    }
                 }
-                else if (letter == '(')
+                if (checkStack.Count > 0)
                 {
-                    checkStack.Push(')');   //Look for opening paranthesis and add closing pair to stack.
+                    Console.WriteLine("Input contains invalid parathesis structure.");
+                    keepAlive = true;
                 }
-                else if (letter == '[')
-                {
-                    checkStack.Push(']');
-                }
-                else if (letter == '{')
-                {
-                    checkStack.Push('}');
-                }
-                else if (checkStack.Count == 0 || checkStack.Pop() != letter)
-                {
-                    Console.WriteLine("Input contains invalid parathesis structure.");  //If letter is a paranthesis but not an opening one, we assume it is a closing paranthesis, so we check if it pairs with our latest stack element.
-                }
+            } while (keepAlive);
+            Console.WriteLine("Input is a valid parathesis structure.");
+        }
+
+        /*
+        * Rekurisva funktioner
+        */
+        static int RecursiveOdd(int n)
+        {
+            if (n == 1)
+            {
+                return 1;
             }
-            //Todo: write success message
+            return (RecursiveOdd(n - 1) + 2);
+        }
+        static int RecursiveEven(int n)
+        {
+            if (n == 0)
+            {
+                return 0;
+            }
+            return (RecursiveEven(n - 1) + 2);
+        }
+        static int RecursiveFib(int n)
+        {
+            return (n < 2) ? n : RecursiveFib(n - 1) + RecursiveFib(n - 2);
+        }
+
+        /*
+         * Iterativa funktioner
+         */
+        static int IterativeOdd(int n)
+        {
+            int result = 1;
+
+            for (int i = 0; i < n - 1; i++)
+            {
+                result += 2;
+            }
+            return result;
+        }
+        static int IterativeEven(int n)
+        {
+            int result = 0;
+
+            for (int i = 0; i < n - 1; i++)
+            {
+                result += 2;
+            }
+            return result;
+        }
+        static int IterativeFib(int x)
+        {
+            if (x == 0) return 0;
+
+            int prev = 0;
+            int next = 1;
+            for (int i = 1; i < x; i++)
+            {
+                int sum = prev + next;
+                prev = next;
+                next = sum;
+            }
+            return next;
         }
     }
 }
